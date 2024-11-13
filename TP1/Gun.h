@@ -1,9 +1,18 @@
-﻿#include <Windows.h>
+﻿#pragma once
+#include <Windows.h>
+
+class State;
 
 class Gun
 {
 public:
-    enum State
+    
+    friend class IdleState;
+    friend class ShootingState;
+    friend class ReloadingState;
+    friend class EmptyState;
+    
+    enum class stateList
     {
         Idle,
         Shooting,
@@ -12,8 +21,8 @@ public:
         
         StateCount
     };
-
-    static const int STATE_COUNT = (int)State::StateCount;
+    
+    static const int STATE_COUNT = (int)stateList::StateCount;
 
 private:
     int mAmmo;
@@ -26,8 +35,8 @@ private:
     float mShootTime;
     float mReloadProgress;
     float mShootProgress;
+
     
-    State mState = State::Idle;
 
     int mTransitions[STATE_COUNT][STATE_COUNT] = {
         //Idle, isShooting, isReloading, Empty
@@ -39,12 +48,15 @@ private:
     };
 
 public:
+    stateList mState;
+    State* currentState;
+    State* mStateArray[STATE_COUNT];
+
     Gun(int, int, float, float);
     
-    bool SetState(State to);
-    void Update(float dT);
-    void Shoot();
-    void Reload();
+    // void Update(float dT);
+    // void Shoot();
+    // void Reload();
 
-    bool TransitionTo(State newState);
+    bool TransitionTo(stateList newState);
 };

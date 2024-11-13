@@ -1,7 +1,8 @@
-﻿#include "State.h"
+﻿#pragma once
+#include "State.h"
 
 class IdleState : public State
 {
-    void Start() override;
-    void Update(float deltaTime) override;
+    void Start(Gun* gun) override;
+    void Update(float deltaTime, Gun* gun) override;
 };

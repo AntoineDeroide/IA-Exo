@@ -1,8 +1,11 @@
-﻿#include "Gun.h"
+﻿#pragma once
+#include "iostream"
+
+class Gun;
+
 class State
 {
 public:
-    Gun gun;
-    virtual void Start() = 0;
-    virtual void Update(float deltaTime) = 0;
+    virtual void Start(Gun* gun) = 0;
+    virtual void Update(float deltaTime, Gun* gun) = 0;
 };

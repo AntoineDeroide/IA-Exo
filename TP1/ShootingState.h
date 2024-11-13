@@ -1,9 +1,9 @@
-﻿#include "State.h"
-#include "Gun.h"
+﻿#pragma once
+#include "State.h"
 #include <iostream>
 
 class ShootingState : public State
 {
-    void Start() override;
-    void Update(float deltaTime) override;
+    void Start(Gun* gun) override;
+    void Update(float deltaTime, Gun* gun) override;
 };

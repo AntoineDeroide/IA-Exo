@@ -4,14 +4,14 @@
 #include <ctime>
 #include <iostream>
 #include "Gun.h"
-
+#include "State.h"
 
 
 void HandleInput(Gun& gun, char input)
 {
     if(input == 'r')
     {
-        gun.Reload();
+        gun.currentState->Start(&gun);
     }
     else if(input == 's')
     {
