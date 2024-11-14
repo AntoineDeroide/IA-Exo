@@ -1,6 +1,9 @@
 #include "Projectile.h"
 
-Projectile::Projectile(int b_radius, sf::Color b_color) : mSpeed(10), Entity(b_radius, b_color){}
+Projectile::Projectile(int b_radius, sf::Color b_color) : mSpeed(10), Entity(b_radius, b_color)
+{
+	SetTag(2);
+}
 
 void Projectile::Move() {
 
@@ -10,9 +13,8 @@ void Projectile::Move() {
 
 void Projectile::OnCollision(Entity* collideWith) {
 
-	if (collideWith->IsTag(1))
-		collideWith->ToDestroy();
-
+	mToDestroy = true;
+	
 }
 
 void Projectile::OnUpdate() {

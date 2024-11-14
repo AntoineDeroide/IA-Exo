@@ -18,7 +18,7 @@ void Zombie::Walk() {
 
 void Zombie::Attack(Entity* attacked) {
 	
-	// à faire dans les dernières heures
+	// ï¿½ faire dans les derniï¿½res heures
 
 	return;
 }
@@ -27,11 +27,16 @@ void Zombie::OnCollision(Entity* collideWith) {
 
 	if(collideWith->IsTag(0))
 		Attack(collideWith);
+	if (collideWith->IsTag(2))
+		TakeDamage(50);
+
 
 }
 
 void Zombie::OnUpdate() {
 
+	if (mHp == 0)
+		mToDestroy = true;
 	Walk();
 
 }
