@@ -22,6 +22,7 @@
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\Plant.cpp" />
     <ClCompile Include="..\Projectile.cpp" />
+    <ClCompile Include="..\State.cpp" />
     <ClCompile Include="..\Zombie.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="DummyEntity.cpp" />
@@ -35,6 +36,7 @@
   <ItemGroup>
     <ClInclude Include="..\Plant.h" />
     <ClInclude Include="..\Projectile.h" />
+    <ClInclude Include="..\State.h" />
     <ClInclude Include="..\Zombie.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="DummyEntity.h" />

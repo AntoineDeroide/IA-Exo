@@ -33,3 +33,13 @@ void Plant::OnUpdate() {
 	return;
 
 }
+
+bool Plant::TransitionTo(stateList newState)
+{
+	if (mTransitions[static_cast<int>(mState)][static_cast<int>(newState)] == 0)
+		return false;
+
+	mState = newState;
+	currentState = mStateArray[static_cast<int>(mState)];
+	return true;
+}
