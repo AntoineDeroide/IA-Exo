@@ -1,6 +1,7 @@
 #include "Plant.h"
-#include "./LightEngine/GameManager.h"
+#include "../LightEngine-master/LightEngine/Entity.h"
 #include "./LightEngine/Scene.h"
+#include "Projectile.h"
 
 Plant::Plant(int b_radius, sf::Color b_color) : mRadius(b_radius), mHp(100), Entity(b_radius, b_color) {
 	SetPosition(300, 0);
@@ -10,10 +11,9 @@ Plant::Plant(int b_radius, sf::Color b_color) : mRadius(b_radius), mHp(100), Ent
 void Plant::Shoot() {
 
 	std::cout << "Bang \n";
-	mProjectile = CreateEntity<Projectile>(5, sf::Color::Cyan);
+	mProjectile = GetScene()->CreateEntity<Projectile>(5, sf::Color::White);
 
-
-	mProjectile->SetPosition(GetPosition().x, GetPosition().y);
+	mProjectile->SetPosition(GetPosition().x, GetPosition().y + mRadius - 5);
 
 	mProjectile->Move();
 
@@ -27,7 +27,9 @@ void Plant::Reload() {
 
 void Plant::OnUpdate() {
 
-	std::cout << "Plant coords : " << GetPosition().x << GetPosition().y << std::endl;
+	if (mAmmo == 0)
+		Reload();
+	
 	return;
 
 }

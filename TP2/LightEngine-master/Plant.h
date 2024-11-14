@@ -1,9 +1,9 @@
 #pragma once
 #include "C:\Users\genes\Documents\GitHub\IA-Exo\TP2\LightEngine-master\LightEngine\Entity.h"
-#include "Projectile.h"
 #include "SFML/Graphics.hpp"
 #include <iostream>
 
+class Projectile;
 
 class Plant : public Entity {
 private:

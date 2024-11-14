@@ -7,7 +7,7 @@ private:
 	float mSpeed;
 
 public:
-	Projectile();
+	Projectile(int b_radius, sf::Color b_color);
 
 	void Move();
 

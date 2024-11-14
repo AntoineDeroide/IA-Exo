@@ -1,6 +1,6 @@
 #include "Projectile.h"
 
-Projectile::Projectile() : mSpeed(10), Entity(4, sf::Color::Cyan){}
+Projectile::Projectile(int b_radius, sf::Color b_color) : mSpeed(10), Entity(b_radius, b_color){}
 
 void Projectile::Move() {
 
@@ -18,5 +18,6 @@ void Projectile::OnCollision(Entity* collideWith) {
 void Projectile::OnUpdate() {
 
 	Move();
+	
 
 }
