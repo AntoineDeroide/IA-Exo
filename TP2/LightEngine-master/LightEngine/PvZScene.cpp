@@ -1,7 +1,6 @@
 #include "./PvZScene.h"
 
 #include "Plant.h"
-#include "Projectile.h"
 #include "Zombie.h"
 
 #include "Debug.h"

@@ -37,7 +37,7 @@ private:
 
 	float mShootCooldown;
 	float mShootProgress;
-
+ 
 	int mRadius;
 
 	int mTransitions[STATE_COUNT][STATE_COUNT] = {
@@ -46,7 +46,6 @@ private:
 		{1,0,0,1}, //isShooting
 		{1,0,0,0},  //isReloading
 		{0,0,1,0},  //Empty
-
 	};
 	
 public:
@@ -55,9 +54,6 @@ public:
 	State* mStateArray[STATE_COUNT];
 	
 	Plant(int b_radius, sf::Color b_color);
-
-	void Shoot();
-	void Reload();
 
 	void OnUpdate() override;
 

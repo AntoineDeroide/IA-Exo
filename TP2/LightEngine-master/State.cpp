@@ -1,5 +1,8 @@
 #include "State.h"
 #include "Plant.h"
+//------------
+//----IDLE----
+//------------
 
 void IdleState::Start(Plant* plant)
 {
@@ -11,9 +14,15 @@ void IdleState::Update(float deltaTime, Plant* plant)
     std::cout << "Idle\n";
 }
 
+//----------------
+//----SHOOTING----
+//----------------
+
 void ShootingState::Start(Plant* plant)
 {
-
+    if (plant->TransitionTo(Plant::stateList::Shooting))
+        plant->mState = Plant::stateList::Shooting;
+    
     plant->mAmmo--;
 
     std::cout << "Bang ! Ammo left : " << plant->mAmmo << std::endl; // Debug + feedback
@@ -32,9 +41,11 @@ void ShootingState::Update(float deltaTime, Plant* plant)
         if(plant->mAmmo == 0)
             plant->TransitionTo(Plant::stateList::Empty);
     }
-
-
 }
+
+//-----------------
+//----RELOADING----
+//-----------------
 
 void ReloadingState::Start(Plant* plant)
 {
@@ -54,6 +65,10 @@ void ReloadingState::Update(float deltaTime, Plant* plant)
     }
 }
 
+//-------------
+//----EMPTY----
+//-------------
+
 void EmptyState::Start(Plant* plant)
 {
     std::cout << "No ammo left...\n";
@@ -62,4 +77,8 @@ void EmptyState::Start(Plant* plant)
 void EmptyState::Update(float deltaTime, Plant* plant)
 {
     std::cout << "Empty\n";
+    
+    // Recharger automatiquement
+    if (plant->TransitionTo(Plant::stateList::Reloading))
+        plant->mState = Plant::stateList::Reloading;
 }
