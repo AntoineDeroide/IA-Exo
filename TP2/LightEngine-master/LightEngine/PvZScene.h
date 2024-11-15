@@ -7,6 +7,10 @@ class Zombie;
 
 class PvZScene : public Scene
 {
+	sf::FloatRect lane1;
+	sf::FloatRect lane2;
+	sf::FloatRect lane3;
+
 	Plant* pPlant1;
 	Plant* pPlant2;
 	Plant* pPlant3;

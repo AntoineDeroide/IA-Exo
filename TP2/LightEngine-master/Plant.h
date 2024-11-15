@@ -13,7 +13,7 @@ public:
 	friend class ReloadingState;
 	friend class EmptyState;
 
-	enum class stateList
+	enum stateList
 	{
 		Idle,
 		Shooting,
@@ -49,8 +49,8 @@ private:
 	};
 	
 public:
-	stateList mState;
-	State* currentState;
+	stateList mState = stateList::Idle;
+	State* mCurrentState;
 	State* mStateArray[STATE_COUNT];
 	
 	Plant(int b_radius, sf::Color b_color);
