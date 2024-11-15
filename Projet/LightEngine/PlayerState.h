@@ -1,22 +1,47 @@
 #include "SFML/Graphics.hpp"
 #include "Entity.h"
+#include "Action.h"
+#include "Condition.h"
+
 #include <iostream>
 
-class State {
-public:
-	virtual void Start();
-	virtual void Update();
-};
+class Player;
 
 // ------------
 // ----Idle----
 // ------------
 
-class IdleState : public State{
+class IdleState : public Action<Player>{
 public:
-	void Start() override;
-	void Update() override;
+	void Start(Player* player) override;
+	void Update(Player* player) override;
+	void End(Player* player) override;
 };
+
+// ---------------
+// ----HasBall----
+// ---------------
+
+class HasBallCondition : public Condition<Player> {
+
+};
+
+// -------------------
+// ----TeamHasBall----
+// -------------------
+
+class TeamHasBallCondition : public Condition<Player> {
+
+};
+
+// ------------------------
+// ----EnemyTeamHasBall----
+// ------------------------
+
+class EnemyTeamHasBallCondition : public Condition<Player> {
+
+};
+
 
 // -----------
 // ----Run----

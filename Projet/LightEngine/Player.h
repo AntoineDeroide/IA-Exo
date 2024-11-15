@@ -1,28 +1,36 @@
 #pragma once
 #include "Entity.h"
+#include "StateMachine.h"
 
 class State;
 
 class Player : public Entity {
 
-public:
+	StateMachine<Player> mStateMachine;
+
+	friend class State;
 	enum playerState {
 		Idle,
-		Run, // Course : vitesse de base ?
-		Sprint, // Sprint : boost de vitesse quand le joueur reçoit la balle
-		Follow, // Follow et Intercept similaires ?
-		Intercept, // Follow et Intercept similaires ?
-		Give, // remplacer par "Pass" ?
-		Mark,
+		HasBall,
+		TeamHasBall,
+		EnemyTeamHasBall,
+
+		//Run, // Course : vitesse de base ?
+		//Sprint, // Sprint : boost de vitesse quand le joueur reçoit la balle
+		//Follow, // Follow et Intercept similaires ?
+		//Intercept, // Follow et Intercept similaires ?
+		//Pickup,
+		//Give, // remplacer par "Pass" ?
+		//Mark,
 
 		stateCount
 	};
 
-	static const int STATIC_COUNT = static_cast<int>(stateCount);
+	static const int STATE_COUNT = static_cast<int>(stateCount);
 
 private:
 	// var
-	bool mHasBall;
+	//bool mHasBall;
 	float mSpeed;
 
 	// Speed boost
@@ -39,8 +47,7 @@ private:
 	float mPassDelayProgress;
 
 	playerState mState;
-	State* currentState;
-	State* stateList[STATIC_COUNT];
+	State* mCurrentState;
 
 public:
 
