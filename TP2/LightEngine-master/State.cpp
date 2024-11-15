@@ -9,7 +9,7 @@ void IdleState::Start(Plant* plant)
     
 }
 
-void IdleState::Update(float deltaTime, Plant* plant)
+void IdleState::Update(Plant* plant)
 {
     std::cout << "Idle\n";
 }
@@ -28,11 +28,11 @@ void ShootingState::Start(Plant* plant)
     std::cout << "Bang ! Ammo left : " << plant->mAmmo << std::endl; // Debug + feedback
 }
 
-void ShootingState::Update(float deltaTime, Plant* plant)
+void ShootingState::Update(Plant* plant)
 {
     std::cout << "Shooting\n";
 
-    plant->mShootProgress += deltaTime;
+    plant->mShootProgress += GameManager::Get()->GetDeltaTime();
     
     if(plant->mShootProgress >= plant->mShootCooldown)
     {
@@ -52,10 +52,10 @@ void ReloadingState::Start(Plant* plant)
     std::cout << "Reloading...\n";
 }
 
-void ReloadingState::Update(float deltaTime, Plant* plant)
+void ReloadingState::Update(Plant* plant)
 {
     std::cout << "Reloading\n";
-    plant->mReloadProgress += deltaTime;
+    plant->mReloadProgress += GameManager::Get()->GetDeltaTime();
     if((plant->mReloadProgress) >= plant->mReloadCooldown)
     {
         std::cout << "Finished reloading !\n";
@@ -74,7 +74,7 @@ void EmptyState::Start(Plant* plant)
     std::cout << "No ammo left...\n";
 }
 
-void EmptyState::Update(float deltaTime, Plant* plant)
+void EmptyState::Update(Plant* plant)
 {
     std::cout << "Empty\n";
     

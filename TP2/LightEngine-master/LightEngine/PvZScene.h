@@ -11,13 +11,6 @@ class PvZScene : public Scene
 	Plant* pPlant2;
 	Plant* pPlant3;
 
-	Projectile* pProjectile1;
-	Projectile* pProjectile2;
-	Projectile* pProjectile3;
-	Projectile* pProjectile4;
-	Projectile* pProjectile5;
-	Projectile* pProjectile6;
-
 	Zombie* pZombie1;
 	Zombie* pZombie2;
 	Zombie* pZombie3;

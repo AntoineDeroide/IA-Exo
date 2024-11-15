@@ -40,8 +40,8 @@ void PvZScene::HandleInput(const sf::Event& event)
 	{
 		if (pEntitySelected != nullptr) 
 		{
-			// Apr�s avoir s�lectionn� une plante, on la fait tirer un projectile en faisant clic gauche
-			pEntitySelected->Shoot();
+			if (pEntitySelected->IsTag(0)){}
+				//pEntitySelected->Plant::TransitionTo(Plant::stateList::Shooting);
 			//pEntitySelected->GoToPosition(event.mouseButton.x, event.mouseButton.y, 10.f);
 		}
 	}

@@ -11,7 +11,7 @@ Plant::Plant(int b_radius, sf::Color b_color) : mRadius(b_radius), mHp(100), Ent
 
 void Plant::OnUpdate() {
 
-	currentState->Update();
+	currentState->Update(this);
 
 }
 

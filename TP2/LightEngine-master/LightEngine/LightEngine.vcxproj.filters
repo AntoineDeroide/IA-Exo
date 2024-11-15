@@ -43,6 +43,7 @@
     <ClCompile Include="..\Zombie.cpp">
       <Filter>Sample</Filter>
     </ClCompile>
+    <ClCompile Include="..\State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -75,6 +76,7 @@
     <ClInclude Include="..\Zombie.h">
       <Filter>Sample</Filter>
     </ClInclude>
+    <ClInclude Include="..\State.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scene.inl">
